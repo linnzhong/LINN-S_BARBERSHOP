@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>LINN'S HAIRCUT</title>
+</head>
+<body>
+	<h1>Here is Linn's barbershop.</h1>
+	<p>Your convinience is our duty.</p>
+	    <!--Blog Post-->
+    <h2>You could set the time and your barber use this website.</h2>
+        <!--1-->
+    <p>No.1: Massager Linda</p>
+    <img src="https://tse2.mm.bing.net/th?id=OIP.3KZ98LWhv7ITOt1aZDA1igHaFc&pid=Api">
+        <!--2-->
+    <p>No.2: Hairstyle designer Chris</p>
+    <img src="http://fashionspk.com/wp-content/uploads/2013/10/UK-Women-trendy-Hair-Style-Designs-.jpg">
+        <!--3-->
+    <p>No.3: Hairdresser Assistant Linn</p>
+    <img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1529928303846&di=634998dbb5905cdccb1bd9f0f15764c7&imgtype=0&src=http%3A%2F%2Fimgsrc.baidu.com%2Fimgad%2Fpic%2Fitem%2F3b87e950352ac65c937b8075f1f2b21193138abe.jpg">
+        <!--4-->
+    <p>This is the picture of our barbershop!</p>
+    <img src="https://tse3.mm.bing.net/th?id=OIP.gTgJpZ0XmpIHnVCcCQinmwHaE7&pid=Api">
+       <!-- User Form -->
+    <h1>Comments</h1>
+    <form action="{% url 'haircut:home_page' %} " method="POST">
+        {%csrf_token%}
+        <input type="text" name="time" placeholder="Type Your Time"><br>
+        <input type="text" name="barber_name" placeholder="Type Your Barber Name"><br>
+        <input type="text" name="customer_name" placeholder="Type Your Name"><br>
+        <input type="submit">
+
+    </form>
+    
+
+    <!--Display Previous Comments-->
+        <h2>Appointment</h2>
+        {% for appointment in appointments %}
+        <p>Time: {{appointment.time}}</p>
+
+        <p>Barber name: {{appointment.barber_name}}</p>
+        <p>Customer name: {{appointment.customer_name}}</p> <hr>
+        
+        {% endfor %}
+
+
+
+</body>
+</html>
